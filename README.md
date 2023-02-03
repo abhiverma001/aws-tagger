@@ -15,12 +15,12 @@ pip install aws-tagger
 
 ## Usage
 
-### Tag individual resource with a single tag
+## Tag individual resource with a single tag
 ```
 aws-tagger --resource i-07a9d0e5 --tag "App:Foobar"  
 ```
 
-### Tag multiple resources with multiple tags
+## Tag multiple resources with multiple tags
 ```
 aws-tagger --resource i-07a9d0e5 --resource i-0456e3a9 --tag "App:Foobar" --tag "Team:My Team"
 ```
@@ -39,54 +39,59 @@ aws-tagger --csv my-resources.csv
 ## AWS Resource Support
 AWS Tagger supports the following AWS resource types. 
 
-### EC2 instances
+## EC2 instances
 Any EC2 volumes that are attached to the instance will be automatically tagged.
 ```
 aws-tagger --resource i-07a9d0e5 --tag "App:Foobar"  
 ```
 
-### S3 buckets
+## S3 buckets
 ```
 aws-tagger --resource my-bucket --tag "App:Foobar"  
 ```
 
-### RDS instances 
+## RDS instances 
 ```
 aws-tagger --resource arn:aws:rds:us-east-1:111111111:db:my-db --tag "App:Foobar"  
 
 ```
 
-### EFS files systems
+## EFS files systems
 ```
 aws-tagger --resource arn:aws:elasticfilesystem:us-east-1:1111111111:file-system/fs-1111111 --tag "App:Foobar"  
 ```
 
-### Elastic Load Balancers
+## Elastic Load Balancers
 ```
 aws-tagger --resource arn:aws:elasticloadbalancing:us-east-1:11111111111:loadbalancer/my-elb --tag "App:Foobar"  
 ```
 
-### Application Load Balancers
+## Application Load Balancers
 ```
 aws-tagger --resource arn:aws:elasticloadbalancing:us-east-1:11111111111:loadbalancer/app/nile-content-api-syd-44c45100/f02ac6f33df89ba8 --tag "App:Foobar"  
 ```
 
-### Elasticache clusters
+## Network Load Balancers
+```
+Network load balancer is not supported with this tool  
+```
+
+## Elasticache clusters
 ```
 aws-tagger --resource arn:aws:elasticache:us-east-1:111111111:cluster:my-cluster --tag "App:Foobar"  
 ```
 
-### Elasticsearch clusters 
+## Elasticsearch clusters 
 ```
 aws-tagger --resource arn:aws:es:us-east-1:111111111:domain/my-domain --tag "App:Foobar"  
 ```
 
-### Kinesis streams
+## Kinesis streams
 ```
 aws-tagger --resource arn:aws:kinesis:us-east-1:111111111:stream/my-stream --tag "App:Foobar"  
 ```
 
-### Cloudfront distributions
+## Cloudfront distributions
 ```
 aws-tagger --resource arn:aws:cloudfront::1111111111:distribution/E1111111111111 --tag "App:Foobar"  
 ```
@@ -94,7 +99,7 @@ aws-tagger --resource arn:aws:cloudfront::1111111111:distribution/E1111111111111
 ## AWS credentials
 AWS Tagger uses the standard AWS credential configuration options. 
 
-### Environment variables
+## Environment variables
 ```
 export AWS_REGION="us-east-1"
 export AWS_ACCESS_KEY_ID="aka..."
@@ -102,7 +107,7 @@ export AWS_SECRET_ACCESS_KEY="123..."
 aws-tagger --resource i-07a9d0e5 --tag "App:Foobar"  
 ```
 
-### IAM Roles
+## IAM Roles
 AWS Tagger also supports cross-account role assumption. You will still need to configure the initial AWS credentials using one of the methods above, but the role will be used to call the actuall AWS API.
 
 ```

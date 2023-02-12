@@ -1,0 +1,2 @@
+Id,Region,Owner,Author,Service,Environment,Description
+arn:aws:lambda:ap-south-1:092037778476:function:my-first-lambda-function,ap-south-1,Abhishek,UBW,Nginx,dev,For testing only
